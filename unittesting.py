@@ -8,5 +8,6 @@ class TestAddition(unittest.TestCase):
         self.assertEqual(add_numbers(-1, 1), 0)
         self.assertEqual(add_numbers(0, 0), 0)
 
+
 if __name__ == "__main__":
     unittest.main()
