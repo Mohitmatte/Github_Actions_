@@ -1,6 +1,7 @@
 import unittest
 from addition import add_numbers  # Import function from your main code file
 
+
 class TestAddition(unittest.TestCase):
     def test_add(self):
         self.assertEqual(add_numbers(2, 3), 5)
