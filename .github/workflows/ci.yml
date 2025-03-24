@@ -1,0 +1,27 @@
+name: CI Pipeline  # Continuous Integration Pipeline
+
+on: [push, pull_request]  # Runs on push and pull request events
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'  # Use latest Python 3.x version
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt || true  # Install dependencies if exists
+          pip install flake8  # Install flake8 for linting
+
+      - name: Run flake8 (Linting)
+        run: flake8 .  # Check code style
+
+      - name: Run unit tests
+        run: python -m unittest discover -s . -p "test_*.py"
