@@ -4,7 +4,7 @@ on: [push, pull_request]  # Runs on push and pull request events
 
 jobs:
   lint-and-test:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted  # Change from 'ubuntu-latest' to 'self-hosted'
 
     steps:
       - name: Checkout repository
